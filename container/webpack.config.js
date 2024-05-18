@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
   mode: 'development',
@@ -8,6 +9,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new ModuleFederationPlugin({
+      name: 'container', // não é necessário para o "Host", apenas para os "Remotes"
+      remotes: { //Lista os projetos que o container pode procurar por código adicional
+        products: 'products@http://localhost:8081/remoteEntry.js'
+      }
     })
   ]
 };
