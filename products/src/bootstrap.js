@@ -14,7 +14,6 @@ const mount = (el) => {
 // para ambientes de DEV, assumimos que teremos o seletor especificado
 if (process.env.NODE_ENV === 'development') {
   const el = document.querySelector('#dev-products');
-
   // assumindo que nosso container não possua um elemento com id 'dev-products'
   if (el) {
     // provavelmente estamos rodando no projeto isolado

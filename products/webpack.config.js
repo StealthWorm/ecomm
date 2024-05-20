@@ -15,7 +15,8 @@ module.exports = {
       name: 'products',
       filename: 'remoteEntry.js', // nome do arquivo de manifesto, que conterá as instruções para carregar os arquivos deste projeto no Host
       exposes: {
-        './ProductsIndex': './src/index' // "ProductsIndex" é o alias para o arquivo exposto
+        // "ProductsIndex" é o alias para o arquivo exposto
+        './ProductsIndex': './src/bootstrap'
       },
       // especifica para o "ModuleFederation" que ele deve compartilhar esse módulo, ou seja, vai tentar verificar se 
       // existem outros projetos "Remotes" que utilizam esse recurso, de modo que ele inclua esse indice apenas uma vez
