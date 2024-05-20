@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 module.exports = {
   mode: 'development',
   devServer: {
-    port: 8081,
+    port: 8082,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -12,10 +12,10 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       //para "Remotes", é preciso setar um nome, que será utilizado para idetificar a conexão no "Host" -> 'products@http://localhost:8081/remoteEntry.js', se fosse "productsApp", ficaria "productsApp@http..."
-      name: 'products',
+      name: 'cart',
       filename: 'remoteEntry.js', // nome do arquivo de manifesto, que conterá as instruções para carregar os arquivos deste projeto no Host
       exposes: {
-        './ProductsIndex': './src/index' // "ProductsIndex" é o alias para o arquivo exposto
+        './CartShow': './src/index' // "CartIndex" é o alias para o arquivo exposto
       },
       // especifica para o "ModuleFederation" que ele deve compartilhar esse módulo, ou seja, vai tentar verificar se 
       // existem outros projetos "Remotes" que utilizam esse recurso, de modo que ele inclua esse indice apenas uma vez
